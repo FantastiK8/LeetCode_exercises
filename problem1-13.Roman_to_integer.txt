@@ -1,0 +1,57 @@
+class Solution(object):
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        
+        # give values:
+        # I = 1
+        # II = 2
+        # III = 3
+        # IV = 4
+        # V = 5
+        # VI = 6
+        # VII = 7
+        # VIII = 8
+        # IX = 9
+        # X = 10
+        # XL = 40
+        # L = 50
+        # LC = 90
+        # C = 100
+        # CD = 400
+        # D = 500
+        # DM = 900
+        # M = 1000
+        #
+        # write the rules down:
+        # --> rule 1. if the ith letter is V check the the ith - 1 letter, if ith - 1 letter is I then return 4 and skip ith -1 itteration if not return 5. 
+        # if ith letter is I and ith -1 letter is V return 6 and skipp ith-1 itteration
+        # if ith letter is I and ith -1 letter is I then check the ith -2 letter if it is I again then check ith - 3 and if it is V return 8 and skip ith-1, ith-2, ith-3 itteration else return 3 and skip ith-1 and ith-2 itterations, if ith-2 letter is V return 7 and skip ith-1. ith-2 steps, if ith-2 none above return 2 and skip ith-1 itteration only if ith -1 none of above return 1.
+        # If ith letter is X and ith-1 letter is I return 9 else return 10
+        # if ith letter is L and ith-1 ketter is X return 40 else return 50
+        # if ith letter is C and ith-1 letter is L return 90 else 100
+        # if ith letter is D and ith-1 is C return 400 else 500
+        # if ith letter is M and ith-1 letter D return 900 else 1000
+        
+        # looping through the word backwords
+        
+        # checking the neigbrours front and back if possible (except first and the last letter)
+        
+        # check for the rules of the i letter with its neighbrou and if a complex rule such as I V or V I is applied then skip the next i+1 and go to i+2
+        
+        
+        for i, letter in enumerate(s):
+            
+            
+        
+        # VERSION 2: HASH map with all necessary values.
+        # looping backwards through the word and taking 4 letters at first if longer than 3 word and check if the key is in the hash map if yes return value if not take 3 last letter and check again and repeat with two if three failed and repeat with one if two failed.
+        
+        
+        
+        
+        
+        
+    
