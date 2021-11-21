@@ -19,8 +19,7 @@ class Solution(object):
         """
         :type s: str
         :rtype: int
-        example: VI
-        example 2: IV
+
         """
         current_number = 0
         previous_number = 0
@@ -73,6 +72,6 @@ s = "MCMXCIV" #1994
 solution = Solution()
 print(solution.romanToInt(s))
 
-
+   
 
         
