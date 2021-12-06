@@ -73,6 +73,64 @@ class Solution(object):
         return curr_max if curr_max > 0 else max(nums)  # Note that when all nums are less than 0, curr_max is 0.
 
 
+advice explanation from FANG group from a teammate:
+
+runSum = running sum of the current subarray
+bestSoFarSum = the global maximum best subarray sum
+
+Start by setting both sums to first element to account for edge case of one element only
+
+
+
+forEach element i in nums with pointer starting at index 1(){
+You have 2 DP Choices    
+1. Discard Current contiguous subarray (runSum = 0, then runSum = nums[i])
+    -if the runningSum is less than 0
+    - AND IF nums[i] is STILL GREATER THAN RUNNNING SUM 
+    -(i.e. runSum = -10, but nums[i] = -5, you want to restart -> start over with the larger negative value]
+    -(i.e. runSum = -1, but nums[i] = 5, you want to restart -> otherwise your runningSum only decreases]
+    
+2. Add element nums[i] to the contiguous subarray (runSum+= nums[i])
+    - if runSum is positive, you'll always keep adding
+    -(i.e. runSum = 1, but nums[i] = 5, you want to keep current subarray going)
+    -Most confusing case below, two negative values
+    -(i.e. runSum = -1, but nums[i] = -5, still want to add, because the prior runningSum has already been recorded as a bestSoFarSum (-1), even if the result here is (-1 +-5 = -6) ]
+
+Then set bestSoFarSum = Math.max(bestSoFarSum, runSum) for best local solution
+}
+
+
+return bestSoFarSum
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        //set to first element to account for edge case of only 1 element
+        int runSum = nums[0];
+        int bestSoFarSum = nums[0];
+            
+        for(int i = 1; i < nums.length; i++){
+            int curValue = nums[i];
+            //if the runSum is negative AND the new nums[i] > than runSum
+            if(runSum < 0 && curValue > runSum){
+              //discard current contiguous subarray
+              //instead take current value
+              runSum = 0 + curValue;  
+            } else {
+              //keep contiguous subarray and add curVal to it
+              runSum += curValue;
+            }
+            
+            bestSoFarSum = Math.max(bestSoFarSum, runSum);
+        }
+        
+        return bestSoFarSum;
+    }
+}
+this problem is complicated because of the negative numbers, but I tried to be 
+as explicit as possible, let me know if you have any questions about it
+
+
+
 ###############
 NOT MY SOLUTION.... LEARNING PROCESS...
 Success
