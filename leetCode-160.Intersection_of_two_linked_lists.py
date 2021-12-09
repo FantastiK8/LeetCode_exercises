@@ -108,3 +108,36 @@ class Solution(object):
                 
         return
             
+# SECOND SOLUTION I THOUGHT OF HAS 
+# BASICALLY ALMOST THE SAME OUTCOME IN TERMS OF SPACE AND RUN TIME: 
+# Success
+# Details 
+# Runtime: 196 ms, faster than 69.16% of Python online submissions for Intersection of Two Linked Lists.
+# Memory Usage: 44 MB, less than 6.24% of Python online submissions for Intersection of Two Linked Lists.
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        if headA is None or headB is None:
+            return
+          
+        dic = {}
+        
+        while headA:
+            dic[headA] = "dummy val"
+            headA = headA.next
+            
+        while headB:
+            if headB in dic:
+                return headB
+            else:
+                headB = headB.next
