@@ -40,11 +40,16 @@ Methods pop, top and getMin operations will always be called on non-empty stacks
 At most 3 * 104 calls will be made to push, pop, top, and getMin.
 """
 
+#Success
+# Details 
+# Runtime: 51 ms, faster than 81.28% of Python online submissions for Min Stack.
+# Memory Usage: 17.1 MB, less than 67.75% of Python online submissions for Min Stack.
+
 class MinStack(object):
 
     def __init__(self):
         self.minStack = []
-        self.minimum = 0
+        self.minimum = float('inf')
 
     def push(self, val):
         """
@@ -59,7 +64,7 @@ class MinStack(object):
         """
         :rtype: None
         """
-        popped = self.minStack.pop(0)
+        popped = self.minStack.pop()
         if popped == self.minimum:
             temp = float('inf')
             for num in self.minStack:
@@ -81,14 +86,18 @@ class MinStack(object):
         return self.minimum
 
 
+
 # Your MinStack object will be instantiated and called as such:
 val = -2
-val2 = 1
+val2 = 0
+val3 = -3
 obj = MinStack()
 obj.push(val)
 obj.push(val2)
-#obj.pop()
-param_3 = obj.top()
-param_4 = obj.getMin()
+obj.push(val3)
+param_4 = obj.getMin() #return -3
+obj.pop()
+param_3 = obj.top() # 
+#param_4 = obj.getMin()
 print(param_3)
 print(param_4)
