@@ -68,6 +68,12 @@ Constraints:
 #             print(" AFTER cur    ", cur)
 #         return cur
 
+
+# Success
+# Details 
+# Runtime: 24 ms, faster than 29.68% of Python online submissions for House Robber.
+# Memory Usage: 13.5 MB, less than 44.52% of Python online submissions for House Robber.
+
 class Solution:
     def rob(self, nums):
         previous_house_max = 0
